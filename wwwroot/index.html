@@ -1,0 +1,48 @@
+<html>
+<link rel="stylesheet" type="text/css" href="css/rpgui.css">
+<script src="js/rpgui.js"></script>
+<script src="https://unpkg.com/htmx.org@1.9.10"></script>
+<style>
+	body, #container
+	{
+		background: #222;
+		padding-top:20px;
+		padding-bottom:20px;
+	}
+	
+	.inner
+	{
+		background: #444;
+		padding-left:20px;
+		padding-right:20px;
+		min-width: 740px;
+		max-width: 900px;
+		margin: 0 auto;
+	}
+</style>
+<body>
+  <div class="rpgui-content" style="overflow-y:scroll">
+    <div id="container">
+      <div id="main"></div>
+      <div class="inner rpgui-container framed" style="position:relative">
+        <header>
+          <h1 style="font-size:250%">F#/Htmx Flag Demo</h1>
+          <hr class="golden" />
+        </header>
+        <div id="containers" class="rpgui-container framed-grey">
+          <div hx-get="/flags/a" hx-trigger="load, every 2s"></div>
+          <hr class="golden" />
+          <div hx-get="/flags/b" hx-trigger="load, every 2s"></div>
+          <hr class="golden" />
+          <label>Flag C:</label>
+          <div id="flag-c" class="rpgui-icon potion-red"></div>
+          <hr class="golden" />
+          <label>Flag D:</label>
+          <div id="flag-d" class="rpgui-icon potion-blue"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</script>
+</html>
